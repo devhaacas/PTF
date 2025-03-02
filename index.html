@@ -384,25 +384,35 @@
 
     <script>
         function toggleMenu() {
-            let menu = document.getElementById("menu");
-            menu.classList.toggle("show");
+    let menu = document.getElementById("menu");
+    menu.classList.toggle("show");
+}
+
+// Fechar o menu ao clicar em um link
+document.querySelectorAll(".menu a").forEach(link => {
+    link.addEventListener("click", () => {
+        let menu = document.getElementById("menu");
+        if (menu.classList.contains("show")) {
+            menu.classList.remove("show");
         }
+    });
+});
 
-        document.addEventListener("scroll", function () {
-            let sections = document.querySelectorAll("section");
-            sections.forEach(section => {
-                let rect = section.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 50) {
-                    section.classList.add("show");
-                }
-            });
+document.addEventListener("scroll", function () {
+    let sections = document.querySelectorAll("section");
+    sections.forEach(section => {
+        let rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 50) {
+            section.classList.add("show");
+        }
+    });
 
-            document.querySelectorAll(".progress-bar").forEach(bar => {
-                let percent = bar.getAttribute("data-percent");
-                bar.style.width = percent + "%";
-                bar.textContent = percent + "%";
-            });
-        });
+    document.querySelectorAll(".progress-bar").forEach(bar => {
+        let percent = bar.getAttribute("data-percent");
+        bar.style.width = percent + "%";
+        bar.textContent = percent + "%";
+    });
+});
     </script>
 </body>
 </html>
