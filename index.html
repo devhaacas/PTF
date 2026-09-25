@@ -7,63 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;600&display=swap" rel="stylesheet">
     <meta name="description" content="Portfólio de HAAC, desenvolvedor Mobile e designer gráfico.">
     <style>
-        /* Estilo Geral */<script>
-(() => {
-  function iniciarAviso() {
-    // Não mostra se a página já abriu com rolagem.
-    if (window.scrollY > 0) return;
-
-    const aviso = document.createElement("div");
-    aviso.textContent = "Deslize para ver o site na íntegra";
-
-    Object.assign(aviso.style, {
-      position: "fixed",
-      bottom: "70px", // Ajuste para ficar acima da sua setinha.
-      left: "50%",
-      transform: "translateX(-50%)",
-      zIndex: "1000",
-      width: "max-content",
-      maxWidth: "calc(100vw - 32px)",
-      boxSizing: "border-box",
-      padding: "10px 16px",
-      borderRadius: "12px",
-      background: "rgba(0, 0, 0, 0.8)",
-      color: "#fff",
-      fontFamily: "inherit",
-      fontSize: "14px",
-      lineHeight: "1.5",
-      textAlign: "center",
-      pointerEvents: "none"
-    });
-
-    document.body.appendChild(aviso);
-
-    function ocultarAoRolar() {
-      if (window.scrollY <= 0) return;
-
-      aviso.remove();
-      window.removeEventListener("scroll", ocultarAoRolar);
-      window.removeEventListener("pageshow", ocultarAoRolar);
-    }
-
-    window.addEventListener("scroll", ocultarAoRolar, {
-      passive: true
-    });
-
-    // Também verifica a rolagem restaurada pelo navegador.
-    window.addEventListener("pageshow", ocultarAoRolar);
-    ocultarAoRolar();
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", iniciarAviso, {
-      once: true
-    });
-  } else {
-    iniciarAviso();
-  }
-})();
-</script>
         body {
             margin: 0;
             font-family: 'Exo', sans-serif;
